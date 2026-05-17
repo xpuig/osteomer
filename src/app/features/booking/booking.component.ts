@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { NgClass, NgFor, NgIf, DatePipe } from '@angular/common';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 import { LanguageService } from '../../shared/services/language.service';
-import { BookingService, Booking } from '../../shared/services/booking.service';
+import { Booking } from '../../shared/services/booking.service';
+import { SupabaseService } from '../../shared/services/supabase.service';
 import { EmailJSService } from '../../shared/services/emailjs.service';
 
 interface DayInfo {
@@ -160,7 +161,7 @@ export class BookingComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private langService: LanguageService,
-    private bookingService: BookingService,
+    private supabaseService: SupabaseService,
     private emailJSService: EmailJSService
   ) {
     const now = new Date();
@@ -181,10 +182,11 @@ export class BookingComponent implements OnInit {
   ngOnInit(): void {
     this.generateWeekDays();
     this.generateCalendar();
-    this.bookingService.getAll().subscribe({
-      next: (data) => { this.existingBookings = data; },
-      error: () => {}
-    });
+    if (this.supabaseService.isConfigured()) {
+      this.supabaseService.getAll().then(data => {
+        this.existingBookings = data;
+      }).catch(() => {});
+    }
   }
 
   generateWeekDays(): void {
@@ -311,10 +313,9 @@ export class BookingComponent implements OnInit {
     const dateShort = this.selectedDate.toLocaleDateString('es-ES');
     const time = this.selectedTime;
 
-    this.bookingService.create({ name, email, phone, message, date: dateShort, time }).subscribe({
-      next: () => {},
-      error: () => {}
-    });
+    if (this.supabaseService.isConfigured()) {
+      this.supabaseService.create({ name, email, phone, message, date: dateShort, time }).catch(() => {});
+    }
 
     const subject = encodeURIComponent(`Cita Online - ${name}`);
     const body = encodeURIComponent(

@@ -10,7 +10,8 @@ export interface Booking {
   message: string;
   date: string;
   time: string;
-  createdAt: string;
+  created_at?: string;
+  createdAt?: string;
 }
 
 @Injectable({

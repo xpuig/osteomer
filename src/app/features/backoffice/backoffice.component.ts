@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgFor, NgIf, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { BookingService, Booking } from '../../shared/services/booking.service';
+import { Booking } from '../../shared/services/booking.service';
+import { SupabaseService } from '../../shared/services/supabase.service';
 
 @Component({
   selector: 'app-backoffice',
@@ -58,7 +59,7 @@ import { BookingService, Booking } from '../../shared/services/booking.service';
                   </td>
                   <td class="px-4 py-3 text-black/65">{{ b.phone }}</td>
                   <td class="max-w-xs truncate px-4 py-3 text-black/55" [title]="b.message || ''">{{ b.message || '—' }}</td>
-                  <td class="whitespace-nowrap px-4 py-3 text-black/55">{{ b.createdAt | date: 'dd/MM/yyyy HH:mm' }}</td>
+                  <td class="whitespace-nowrap px-4 py-3 text-black/55">{{ (b.created_at || b.createdAt) | date: 'dd/MM/yyyy HH:mm' }}</td>
                   <td class="px-4 py-3">
                     <button (click)="deleteBooking(b)" class="text-xs text-black/40 underline transition-colors hover:text-black">
                       Eliminar
@@ -78,20 +79,21 @@ export class BackofficeComponent implements OnInit {
   bookings: Booking[] = [];
   loading = true;
 
-  constructor(private service: BookingService) {}
+  constructor(private supabase: SupabaseService) {}
 
-  ngOnInit(): void {
-    this.service.getAll().subscribe({
-      next: (data) => { this.bookings = data.reverse(); this.loading = false; },
-      error: () => { this.loading = false; }
-    });
+  async ngOnInit(): Promise<void> {
+    try {
+      const data = await this.supabase.getAll();
+      this.bookings = data;
+    } catch {}
+    this.loading = false;
   }
 
-  deleteBooking(b: Booking): void {
+  async deleteBooking(b: Booking): Promise<void> {
     if (!b.id) return;
-    this.service.delete(b.id).subscribe({
-      next: () => { this.bookings = this.bookings.filter(item => item.id !== b.id); },
-      error: () => {}
-    });
+    try {
+      await this.supabase.delete(b.id);
+      this.bookings = this.bookings.filter(item => item.id !== b.id);
+    } catch {}
   }
 }
