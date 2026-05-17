@@ -7,7 +7,7 @@ import { Booking } from './booking.service';
   providedIn: 'root'
 })
 export class SupabaseService {
-  private client: SupabaseClient;
+  client: SupabaseClient;
 
   constructor() {
     this.client = createClient(supabaseConfig.url, supabaseConfig.anonKey);
