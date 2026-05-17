@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {
         osteomer: {
@@ -17,7 +17,9 @@ module.exports = {
       },
       borderRadius: {
         sm: '4px',
-        DEFAULT: '4px',
+        DEFAULT: '10px',
+        lg: '16px',
+        xl: '20px',
       }
     },
   },

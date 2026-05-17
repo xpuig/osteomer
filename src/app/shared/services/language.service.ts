@@ -6,7 +6,7 @@ import { Lang } from '../i18n/translations';
   providedIn: 'root'
 })
 export class LanguageService {
-  private currentLang = new BehaviorSubject<Lang>('es');
+  private currentLang = new BehaviorSubject<Lang>('ca');
 
   get currentLang$(): Observable<Lang> {
     return this.currentLang.asObservable();
@@ -17,7 +17,7 @@ export class LanguageService {
   }
 
   toggleLanguage(): void {
-    const next: Lang = this.currentLangValue === 'es' ? 'ca' : 'es';
+    const next: Lang = this.currentLangValue === 'ca' ? 'es' : 'ca';
     this.currentLang.next(next);
   }
 

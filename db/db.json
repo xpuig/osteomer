@@ -1,0 +1,15 @@
+{
+  "bookings": [
+    {
+      "name": "Andrea",
+      "email": "anmdd@gmail.com",
+      "phone": "63509283",
+      "message": "hola",
+      "date": "14/6/2026",
+      "time": "09:00",
+      "createdAt": "2026-05-17T06:18:50.908Z",
+      "id": "h1mK8eOkQbM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

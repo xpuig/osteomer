@@ -45,6 +45,24 @@ export const translations: Record<Lang, Record<string, TranslationMap>> = {
       CONTACT: 'Contacto',
       CONTACT_DESC: 'Escríbenos o visítanos en el corazón de Barcelona.'
     },
+    BOOKING: {
+      TITLE: 'Reserva tu cita online',
+      SUBTITLE: 'Elige el día y la hora que mejor se adapten a ti. Te confirmaremos la cita por email.',
+      SELECT_TIME: 'Horas disponibles',
+      SELECT_DATE_HINT: 'Selecciona un día en el calendario',
+      FORM_TITLE: 'Tus datos',
+      NAME: 'Nombre completo',
+      EMAIL: 'Correo electrónico',
+      PHONE: 'Teléfono',
+      MESSAGE: 'Mensaje',
+      MESSAGE_PLACEHOLDER: 'Indícanos el motivo de tu visita (opcional)',
+      SUBMIT: 'Solicitar cita',
+      SENT: 'Enviando...',
+      REQUIRED: 'Este campo es obligatorio',
+      INVALID_EMAIL: 'Introduce un email válido',
+      SUCCESS: '¡Gracias! Tu solicitud se ha enviado correctamente. Te responderemos en menos de 24 horas.',
+      OPEN_EMAIL: 'Abrir correo electrónico'
+    },
     FOOTER: {
       DESCRIPTION: 'Clínica de Osteopatía y Fisioterapia avanzada en Barcelona. Recupera tu equilibrio, transforma tu salud.',
       SERVICES_TITLE: 'Servicios',
@@ -96,6 +114,24 @@ export const translations: Record<Lang, Record<string, TranslationMap>> = {
       ABOUT_DESC: 'Més de 15 anys dedicats a l\'osteopatia integrativa a Barcelona.',
       CONTACT: 'Contacte',
       CONTACT_DESC: 'Escriu-nos o visita\'ns al cor de Barcelona.'
+    },
+    BOOKING: {
+      TITLE: 'Reserva la teva cita online',
+      SUBTITLE: 'Tria el dia i l\'hora que millor s\'adaptin a tu. Et confirmarem la cita per email.',
+      SELECT_TIME: 'Hores disponibles',
+      SELECT_DATE_HINT: 'Selecciona un dia al calendari',
+      FORM_TITLE: 'Les teves dades',
+      NAME: 'Nom complet',
+      EMAIL: 'Correu electrònic',
+      PHONE: 'Telèfon',
+      MESSAGE: 'Missatge',
+      MESSAGE_PLACEHOLDER: 'Indica\'ns el motiu de la teva visita (opcional)',
+      SUBMIT: 'Sol·licitar cita',
+      SENT: 'Enviant...',
+      REQUIRED: 'Aquest camp és obligatori',
+      INVALID_EMAIL: 'Introdueix un email vàlid',
+      SUCCESS: 'Gràcies! La teva sol·licitud s\'ha enviat correctament. Et respondrem en menys de 24 hores.',
+      OPEN_EMAIL: 'Obrir correu electrònic'
     },
     FOOTER: {
       DESCRIPTION: 'Clínica d\'Osteopatia i Fisioteràpia avançada a Barcelona. Recupera el teu equilibri, transforma la teva salut.',

@@ -9,10 +9,10 @@ import { TranslatePipe } from '../../shared/pipes/translate.pipe';
     <section class="bg-white">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="flex min-h-[70vh] flex-col justify-center pt-32 pb-24">
-          <h1 class="text-6xl font-extrabold text-black uppercase tracking-tighter">
+          <h1 class="text-6xl font-bold text-black uppercase tracking-tighter">
             {{ 'SECTIONS.OSTEOPATHY' | translate }}
           </h1>
-          <p class="mt-6 max-w-xl text-base leading-relaxed text-black/50 md:text-lg">
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-black/80 md:text-xl">
             {{ 'SECTIONS.OSTEOPATHY_DESC' | translate }}
           </p>
         </div>

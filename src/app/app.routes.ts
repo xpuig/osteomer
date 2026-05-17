@@ -4,6 +4,8 @@ import { OsteopatiaComponent } from './features/osteopatia/osteopatia.component'
 import { EspecialidadesComponent } from './features/especialidades/especialidades.component';
 import { SobreMiComponent } from './features/sobre-mi/sobre-mi.component';
 import { ContactoComponent } from './features/contacto/contacto.component';
+import { BookingComponent } from './features/booking/booking.component';
+import { BackofficeComponent } from './features/backoffice/backoffice.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +32,16 @@ export const routes: Routes = [
     path: 'contacto',
     component: ContactoComponent,
     data: { animation: 'contacto' }
+  },
+  {
+    path: 'cita-online',
+    component: BookingComponent,
+    data: { animation: 'cita-online' }
+  },
+  {
+    path: 'backoffice',
+    component: BackofficeComponent,
+    data: { animation: 'backoffice' }
   },
   {
     path: '**',
