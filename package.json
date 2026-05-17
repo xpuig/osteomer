@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && node -e \"require('fs').copyFileSync('_redirects', 'dist/osteomer-app/browser/_redirects')\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "api": "npx json-server db/db.json --port 3001"
