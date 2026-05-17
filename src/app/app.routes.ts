@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './features/home/home.component';
-import { TeamComponent } from './features/team/team.component';
+import { OsteopatiaComponent } from './features/osteopatia/osteopatia.component';
+import { EspecialidadesComponent } from './features/especialidades/especialidades.component';
+import { SobreMiComponent } from './features/sobre-mi/sobre-mi.component';
+import { ContactoComponent } from './features/contacto/contacto.component';
 
 export const routes: Routes = [
   {
@@ -9,9 +12,24 @@ export const routes: Routes = [
     data: { animation: 'home' }
   },
   {
-    path: 'equipo',
-    component: TeamComponent,
-    data: { animation: 'team' }
+    path: 'osteopatia',
+    component: OsteopatiaComponent,
+    data: { animation: 'osteopatia' }
+  },
+  {
+    path: 'especialidades',
+    component: EspecialidadesComponent,
+    data: { animation: 'especialidades' }
+  },
+  {
+    path: 'sobre-mi',
+    component: SobreMiComponent,
+    data: { animation: 'sobre-mi' }
+  },
+  {
+    path: 'contacto',
+    component: ContactoComponent,
+    data: { animation: 'contacto' }
   },
   {
     path: '**',
