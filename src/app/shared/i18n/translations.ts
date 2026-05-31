@@ -13,6 +13,7 @@ export const translations: Record<Lang, Record<string, TranslationMap>> = {
       BOOK_ONLINE: 'Cita Online'
     },
     HOME: {
+      PAGE_TITLE: 'OSTEOMER - Osteopatía Fisioterapia en Barcelona y Sitges',
       BADGE: 'Clínica de Salud Integral',
       TITLE_1: 'Reequilibramos tu cuerpo,',
       TITLE_2: 'transformamos tu salud.',
@@ -67,9 +68,9 @@ export const translations: Record<Lang, Record<string, TranslationMap>> = {
       DESCRIPTION: 'Clínica de Osteopatía y Fisioterapia avanzada en Barcelona. Recupera tu equilibrio, transforma tu salud.',
       SERVICES_TITLE: 'Servicios',
       CONTACT_TITLE: 'Contacto',
-      ADDRESS: 'Carrer de Pau Claris 123, 08009 Barcelona',
-      PHONE: '+34 934 567 890',
-      EMAIL: 'hola@osteomer.com',
+      ADDRESS: 'Carrer Enric Granados, 135 3r 2a, 08008 Barcelona',
+      PHONE: '649 857 881',
+      EMAIL: 'info@osteomer.com',
       RIGHTS: 'Todos los derechos reservados.'
     }
   },
@@ -83,6 +84,7 @@ export const translations: Record<Lang, Record<string, TranslationMap>> = {
       BOOK_ONLINE: 'Cita Online'
     },
     HOME: {
+      PAGE_TITLE: 'OSTEOMER - Osteopatia Fisioterapia a Barcelona i Sitges',
       BADGE: 'Clínica de Salut Integral',
       TITLE_1: 'Reequilibrem el teu cos,',
       TITLE_2: 'transformem la teva salut.',

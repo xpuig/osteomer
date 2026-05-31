@@ -1,6 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
+import { getTranslation } from '../../shared/i18n/translations';
+import { LanguageService } from '../../shared/services/language.service';
 
 @Component({
   selector: 'app-home',
@@ -103,13 +107,7 @@ import { TranslatePipe } from '../../shared/pipes/translate.pipe';
     <section class="bg-osteomer-gray py-24">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="grid items-center gap-16 md:grid-cols-2">
-          <div class="flex aspect-[4/3] items-center justify-center rounded bg-black/8">
-            <svg viewBox="0 0 24 24" class="h-16 w-16 text-black/45" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2a10 10 0 1 0 10 10"/>
-              <path d="M12 6a6 6 0 1 0 6 6"/>
-              <path d="M12 10a2 2 0 1 0 2 2"/>
-            </svg>
-          </div>
+          <div class="flex aspect-[4/3] items-center justify-center rounded bg-black/8 bg-cover bg-center" style="background-image: url(https://picsum.photos/seed/osteopathy/800/600)"></div>
           <div>
             <h2 class="text-3xl font-bold tracking-[-0.02em] text-black md:text-4xl">
               {{ 'HOME.ABOUT_TITLE' | translate }}
@@ -172,7 +170,7 @@ import { TranslatePipe } from '../../shared/pipes/translate.pipe';
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                hola&#64;osteomer.com
+                info&#64;osteomer.com
               </li>
             </ul>
             <div class="mt-8">
@@ -195,9 +193,18 @@ export class HomeComponent implements OnInit, OnDestroy {
   currentIndex = 0;
   nextIndex = 1;
   showNext = false;
-  private intervalId: any;
+  private intervalId: ReturnType<typeof setInterval> | undefined;
+  private langSub?: Subscription;
+
+  constructor(
+    private title: Title,
+    private langService: LanguageService
+  ) {}
 
   ngOnInit(): void {
+    this.updatePageTitle();
+    this.langSub = this.langService.currentLang$.subscribe(() => this.updatePageTitle());
+
     this.intervalId = setInterval(() => {
       this.nextIndex = (this.currentIndex + 1) % this.backgrounds.length;
       this.showNext = true;
@@ -209,6 +216,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.langSub?.unsubscribe();
     if (this.intervalId) clearInterval(this.intervalId);
+  }
+
+  private updatePageTitle(): void {
+    this.title.setTitle(getTranslation(this.langService.currentLangValue, 'HOME.PAGE_TITLE'));
   }
 }

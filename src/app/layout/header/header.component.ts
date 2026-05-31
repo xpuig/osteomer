@@ -10,9 +10,9 @@ import { LanguageService } from '../../shared/services/language.service';
   imports: [RouterLink, NgClass, TranslatePipe],
   template: `
     <header class="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-sm">
-      <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <a routerLink="/" class="text-xl font-bold tracking-[-0.02em] text-black">
-          OSTEOMER
+      <nav class="mx-auto flex min-h-20 max-w-7xl items-center justify-between px-6 py-5 md:min-h-[104px] md:py-6 lg:px-8">
+        <a routerLink="/" class="flex items-center">
+          <img src="assets/img/logo.svg" alt="OSTEOMER" class="h-10 md:h-14" />
         </a>
 
         <button
@@ -26,55 +26,55 @@ import { LanguageService } from '../../shared/services/language.service';
         </button>
 
         <div
-          class="fixed inset-x-0 top-[57px] bg-white border-b border-black/10 md:border-0 md:static md:inset-auto md:bg-transparent md:flex md:items-center md:gap-8 transition-all duration-300 overflow-hidden"
+          class="fixed inset-x-0 top-20 bg-white border-b border-black/10 md:border-0 md:static md:inset-auto md:bg-transparent md:flex md:items-center md:gap-8 transition-all duration-300 overflow-hidden"
           [ngClass]="mobileOpen ? 'max-h-80 p-6 md:p-0' : 'max-h-0 p-0 md:!max-h-full'"
         >
-          <div class="flex flex-col gap-4 md:flex-row md:items-center md:gap-1">
+          <div class="flex flex-col gap-5 md:flex-row md:items-center md:gap-2">
             <a
               routerLink="/"
-              [ngClass]="{'text-black font-bold': isActive('/'), 'text-black/65 font-bold': !isActive('/')}"
+              [ngClass]="{'text-black': isActive('/'), 'text-black/65': !isActive('/')}"
               (click)="mobileOpen = false"
-              class="px-3 py-1 text-base transition-all duration-300 hover:text-black"
+              class="px-4 py-1.5 text-lg font-bold transition-colors duration-300 hover:text-black"
             >
               {{ 'NAV.HOME' | translate }}
             </a>
             <a
               routerLink="/osteopatia"
-              [ngClass]="{'text-black font-bold': isActive('/osteopatia'), 'text-black/65 font-bold': !isActive('/osteopatia')}"
+              [ngClass]="{'text-black': isActive('/osteopatia'), 'text-black/65': !isActive('/osteopatia')}"
               (click)="mobileOpen = false"
-              class="px-3 py-1 text-base transition-all duration-300 hover:text-black"
+              class="px-4 py-1.5 text-lg font-bold transition-colors duration-300 hover:text-black"
             >
               {{ 'NAV.OSTEOPATHY' | translate }}
             </a>
             <a
               routerLink="/especialidades"
-              [ngClass]="{'text-black font-bold': isActive('/especialidades'), 'text-black/65 font-bold': !isActive('/especialidades')}"
+              [ngClass]="{'text-black': isActive('/especialidades'), 'text-black/65': !isActive('/especialidades')}"
               (click)="mobileOpen = false"
-              class="px-3 py-1 text-base transition-all duration-300 hover:text-black"
+              class="px-4 py-1.5 text-lg font-bold transition-colors duration-300 hover:text-black"
             >
               {{ 'NAV.SPECIALTIES' | translate }}
             </a>
             <a
               routerLink="/sobre-mi"
-              [ngClass]="{'text-black font-bold': isActive('/sobre-mi'), 'text-black/65 font-bold': !isActive('/sobre-mi')}"
+              [ngClass]="{'text-black': isActive('/sobre-mi'), 'text-black/65': !isActive('/sobre-mi')}"
               (click)="mobileOpen = false"
-              class="px-3 py-1 text-base transition-all duration-300 hover:text-black"
+              class="px-4 py-1.5 text-lg font-bold transition-colors duration-300 hover:text-black"
             >
               {{ 'NAV.ABOUT' | translate }}
             </a>
             <a
               routerLink="/contacto"
-              [ngClass]="{'text-black font-bold': isActive('/contacto'), 'text-black/65 font-bold': !isActive('/contacto')}"
+              [ngClass]="{'text-black': isActive('/contacto'), 'text-black/65': !isActive('/contacto')}"
               (click)="mobileOpen = false"
-              class="px-3 py-1 text-base transition-all duration-300 hover:text-black"
+              class="px-4 py-1.5 text-lg font-bold transition-colors duration-300 hover:text-black"
             >
               {{ 'NAV.CONTACT' | translate }}
             </a>
             <a
               routerLink="/cita-online"
-              [ngClass]="{'text-black font-bold': isActive('/cita-online'), 'text-black/65 font-bold': !isActive('/cita-online')}"
+              [ngClass]="{'text-black': isActive('/cita-online'), 'text-black/65': !isActive('/cita-online')}"
               (click)="mobileOpen = false"
-              class="px-3 py-1 text-base font-bold text-black transition-all duration-300 hover:text-black md:hidden"
+              class="px-4 py-1.5 text-lg font-bold transition-colors duration-300 hover:text-black md:hidden"
             >
               {{ 'NAV.BOOK_ONLINE' | translate }}
             </a>
@@ -99,7 +99,7 @@ import { LanguageService } from '../../shared/services/language.service';
         </div>
       </nav>
     </header>
-    <div class="h-[57px]"></div>
+    <div class="h-20 md:h-[104px]"></div>
   `,
   styles: ``
 })
