@@ -3,13 +3,14 @@ import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
+import { LocalizeRoutePipe } from '../../shared/pipes/localize-route.pipe';
 import { getTranslation } from '../../shared/i18n/translations';
 import { LanguageService } from '../../shared/services/language.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, TranslatePipe],
+  imports: [RouterLink, TranslatePipe, LocalizeRoutePipe],
   template: `
     <section class="relative overflow-hidden bg-white">
       <div class="absolute inset-0 bg-cover bg-center"
@@ -34,13 +35,13 @@ import { LanguageService } from '../../shared/services/language.service';
           </p>
           <div class="mt-10 flex flex-wrap gap-4">
             <a
-              routerLink="/osteopatia"
+              [routerLink]="'osteopatia' | localizeRoute"
               class="inline-block rounded bg-white px-8 py-4 text-base font-bold text-black transition-all duration-300 hover:bg-white/80"
             >
               {{ 'HOME.CTA_PRIMARY' | translate }}
             </a>
             <a
-              routerLink="/cita-online"
+              [routerLink]="'cita-online' | localizeRoute"
               class="inline-block rounded border border-white/30 px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:border-white hover:bg-white hover:text-black"
             >
               {{ 'HOME.CTA_SECONDARY' | translate }}
@@ -95,7 +96,7 @@ import { LanguageService } from '../../shared/services/language.service';
         </div>
         <div class="mt-10 text-center">
           <a
-            routerLink="/especialidades"
+            [routerLink]="'especialidades' | localizeRoute"
             class="inline-block rounded border border-black/30 px-6 py-3.5 text-base font-bold text-black/85 transition-all duration-300 hover:border-black hover:bg-black hover:text-white"
           >
             {{ 'HOME.SPECIALTIES_CTA' | translate }}
@@ -117,7 +118,7 @@ import { LanguageService } from '../../shared/services/language.service';
             </p>
             <div class="mt-8">
               <a
-                routerLink="/osteopatia"
+                [routerLink]="'osteopatia' | localizeRoute"
                 class="inline-block rounded bg-black px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:bg-black/80"
               >
                 {{ 'HOME.ABOUT_CTA' | translate }}
@@ -140,7 +141,7 @@ import { LanguageService } from '../../shared/services/language.service';
             </p>
             <div class="mt-8">
               <a
-                routerLink="/sobre-mi"
+                [routerLink]="'sobre-mi' | localizeRoute"
                 class="inline-block rounded border border-black/30 px-6 py-3.5 text-base font-bold text-black/85 transition-all duration-300 hover:border-black hover:bg-black hover:text-white"
               >
                 {{ 'HOME.BIO_CTA' | translate }}
@@ -175,7 +176,7 @@ import { LanguageService } from '../../shared/services/language.service';
             </ul>
             <div class="mt-8">
               <a
-                routerLink="/contacto"
+                [routerLink]="'contacto' | localizeRoute"
                 class="inline-block rounded border border-black/30 px-6 py-3.5 text-base font-bold text-black/85 transition-all duration-300 hover:border-black hover:bg-black hover:text-white"
               >
                 {{ 'HOME.CONTACT_CTA' | translate }}

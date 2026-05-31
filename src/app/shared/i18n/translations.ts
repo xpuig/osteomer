@@ -15,8 +15,8 @@ export const translations: Record<Lang, Record<string, TranslationMap>> = {
     HOME: {
       PAGE_TITLE: 'OSTEOMER - Osteopatía Fisioterapia en Barcelona y Sitges',
       BADGE: 'Clínica de Salud Integral',
-      TITLE_1: 'Reequilibramos tu cuerpo,',
-      TITLE_2: 'transformamos tu salud.',
+      TITLE_1: 'Osteopatía',
+      TITLE_2: 'en Barcelona y Sitges',
       DESCRIPTION: 'Clínica de Osteopatía y Fisioterapia avanzada en el corazón de Barcelona. Especialistas en salud integral con enfoque humano y científico.',
       CTA_PRIMARY: 'Descubre nuestros tratamientos',
       CTA_SECONDARY: 'Solicita tu primera visita',
@@ -86,8 +86,8 @@ export const translations: Record<Lang, Record<string, TranslationMap>> = {
     HOME: {
       PAGE_TITLE: 'OSTEOMER - Osteopatia Fisioterapia a Barcelona i Sitges',
       BADGE: 'Clínica de Salut Integral',
-      TITLE_1: 'Reequilibrem el teu cos,',
-      TITLE_2: 'transformem la teva salut.',
+      TITLE_1: 'Osteopatia',
+      TITLE_2: 'a Barcelona i Sitges',
       DESCRIPTION: 'Clínica d\'Osteopatia i Fisioteràpia avançada al cor de Barcelona. Especialistes en salut integral amb enfoc humà i científic.',
       CTA_PRIMARY: 'Descobreix els nostres tractaments',
       CTA_SECONDARY: 'Sol·licita la teva primera visita',

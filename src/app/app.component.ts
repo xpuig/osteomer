@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { trigger, transition, style, query, animate, group } from '@angular/animations';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { LocalizedRouteService } from './shared/services/localized-route.service';
 
 const routeAnimations = trigger('routeAnimations', [
   transition('* <=> *', [
@@ -36,6 +37,8 @@ const routeAnimations = trigger('routeAnimations', [
   animations: [routeAnimations]
 })
 export class AppComponent {
+  constructor(_localizedRoutes: LocalizedRouteService) {}
+
   getRouteAnimationState(outlet: RouterOutlet): string {
     return outlet?.activatedRouteData?.['animation'] ?? '';
   }

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
+import { LocalizeRoutePipe } from '../../shared/pipes/localize-route.pipe';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [RouterLink, TranslatePipe],
+  imports: [RouterLink, TranslatePipe, LocalizeRoutePipe],
   template: `
     <footer class="border-t border-black/10 bg-white">
       <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
@@ -19,9 +20,9 @@ import { TranslatePipe } from '../../shared/pipes/translate.pipe';
           <div>
             <h4 class="mb-4 text-base font-bold uppercase tracking-widest text-black/70">{{ 'FOOTER.SERVICES_TITLE' | translate }}</h4>
             <ul class="space-y-2 text-base text-black/65">
-              <li><a routerLink="/osteopatia" class="transition-colors hover:text-black">{{ 'NAV.OSTEOPATHY' | translate }}</a></li>
-              <li><a routerLink="/especialidades" class="transition-colors hover:text-black">{{ 'NAV.SPECIALTIES' | translate }}</a></li>
-              <li><a routerLink="/contacto" class="transition-colors hover:text-black">{{ 'NAV.CONTACT' | translate }}</a></li>
+              <li><a [routerLink]="'osteopatia' | localizeRoute" class="transition-colors hover:text-black">{{ 'NAV.OSTEOPATHY' | translate }}</a></li>
+              <li><a [routerLink]="'especialidades' | localizeRoute" class="transition-colors hover:text-black">{{ 'NAV.SPECIALTIES' | translate }}</a></li>
+              <li><a [routerLink]="'contacto' | localizeRoute" class="transition-colors hover:text-black">{{ 'NAV.CONTACT' | translate }}</a></li>
             </ul>
           </div>
           <div>

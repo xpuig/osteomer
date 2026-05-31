@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { LocalizeRoutePipe } from '../../shared/pipes/localize-route.pipe';
 import { Booking } from '../../shared/services/booking.service';
 import { SupabaseService } from '../../shared/services/supabase.service';
 import { AuthService } from '../../shared/services/auth.service';
@@ -9,7 +10,7 @@ import { AuthService } from '../../shared/services/auth.service';
 @Component({
   selector: 'app-backoffice',
   standalone: true,
-  imports: [FormsModule, NgFor, NgIf, DatePipe, RouterLink],
+  imports: [FormsModule, NgFor, NgIf, DatePipe, RouterLink, LocalizeRoutePipe],
   template: `
     <section class="min-h-screen bg-osteomer-gray">
       <div class="mx-auto max-w-6xl px-6 lg:px-8">
@@ -52,7 +53,7 @@ import { AuthService } from '../../shared/services/auth.service';
                 </p>
               </div>
               <div class="flex items-center gap-3">
-                <a routerLink="/" class="rounded border border-black/30 px-4 py-2 text-sm font-semibold text-black/70 transition-all hover:border-black hover:text-black">Volver</a>
+                <a [routerLink]="'home' | localizeRoute" class="rounded border border-black/30 px-4 py-2 text-sm font-semibold text-black/70 transition-all hover:border-black hover:text-black">Volver</a>
                 <button (click)="doLogout()" class="rounded bg-black/10 px-4 py-2 text-sm font-semibold text-black/70 transition-all hover:bg-black/20">Salir</button>
               </div>
             </div>
